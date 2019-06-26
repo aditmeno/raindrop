@@ -22,7 +22,7 @@ func RainDrops(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if number%7 == 0 {
-		rainDropResult += "Pling"
+		rainDropResult += "Plong"
 	}
 
 	fmt.Fprintf(w, rainDropResult)
