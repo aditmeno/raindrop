@@ -1,3 +1,4 @@
+---
 resources:
   - name: resource-app
     type: git
@@ -5,22 +6,29 @@ resources:
       uri: https://github.com/aditmeno/raindrop.git
 
 jobs:
-  - name: job-raindrop
+  - name: raindrop-am
     public: true
     plan:
-      - task: raindrop-am
+      - get: resource-app
+        trigger: true
+      - task: web-app-tests
         config:
           platform: linux
           image_resource:
             type: docker-image
-            source: 
-              repository: golang
-              tag: '1.12'
+            source: {repository: golang, tag: 1.12}
+          
           inputs:
             - name: resource-app
-              path: gopath/src/Raindrop
+
           run:
-            path: /bin/sh
-            args: [go run ./...]
-            
+            path: sh
+            args: 
+              - -exc
+              - |
+                cd resource-app
+                go get -u github.com/onsi/ginkgo/ginkgo
+                go get -u github.com/onsi/gomega/...
+                go build ./...
+
 
