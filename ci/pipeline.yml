@@ -1,3 +1,9 @@
+resources:
+  - name: resource-app
+    type: git
+    source:
+      uri: https://github.com/aditmeno/raindrop.git
+
 jobs:
   - name: job-raindrop
     public: true
