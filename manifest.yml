@@ -1,5 +1,5 @@
 ---
 applications:
-  - name: raindrop-app
+  - name: raindrop-app-ak-1-am
     memory: 32M
     instance: 1
