@@ -1,0 +1,5 @@
+---
+applications:
+  - name: raindrop-app
+    memory: 32M
+    instance: 1

@@ -4,6 +4,16 @@ resources:
     type: git
     source:
       uri: https://github.com/aditmeno/raindrop.git
+  
+  - name: cloudfoundry-ak
+    type: cf
+    source:
+      api: ((cf_api))
+      username: ((cf_username))
+      password: ((cf_password))
+      organization: ((cf_org))
+      space: ((cf_space))
+      skip_cert_check: true
 
 jobs:
   - name: raindrop-tests
@@ -57,4 +67,7 @@ jobs:
                 go get -u github.com/onsi/gomega/...
                 go build ./...
 
+      - put: cloudfoundry-ak
+
+          
 
