@@ -3,3 +3,4 @@ applications:
   - name: raindrop-app-ak-1-am
     memory: 32M
     instance: 1
+    random-route: true
